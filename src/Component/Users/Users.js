@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import '../Calculate/Calculate'
 import './Users.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee, faPlusSquare, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 
 const Users = (props) => {
@@ -29,24 +31,27 @@ const DisplayUser = (props) => {
     const salary = Math.round(2000+Math.random() * 1000);
 
     return (
-        <div className='user'>
-            <img src={picture.large} alt=""/>
-            <h2>{fullName}</h2>
-            <div className="align">
-                <div className="div-1">
-                    <p>Email: {email} </p>
-                    <p>Country: {location.country}</p>
-                    <p>State: {location.state}</p>
-                </div>
-                <div className="div-2">
-                    <p>Age: {dob.age}</p>
-                    <p>Office id: {login.username}</p>
-                    <p>Yearly Salary: $ {salary} </p>
-                </div>  
-                <button onClick={() => props.handel(name.last, salary)}>Add to summary</button>
-            </div>
+      <div className="user">
+        <img src={picture.large} alt="" />
+        <h2>{fullName}</h2>
+        <div className="align">
+          <div className="div-1">
+            <p>Email: {email} </p>
+            <p>Country: {location.country}</p>
+            <p>State: {location.state}</p>
+          </div>
+          <div className="div-2">
+            <p>Age: {dob.age}</p>
+            <p>Office id: {login.username}</p>
+            <p>Yearly Salary: $ {salary} </p>
+          </div>
+          <button onClick={() => props.handel(name.last, salary)}>
+            <FontAwesomeIcon className='icon' icon={faPlusSquare} />
+            Add to summary
+          </button>
         </div>
-    )
+      </div>
+    );
 }
 
 export default Users;
